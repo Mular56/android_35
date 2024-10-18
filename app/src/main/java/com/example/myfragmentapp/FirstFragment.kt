@@ -9,28 +9,21 @@ import androidx.navigation.fragment.findNavController
 import com.example.myfragmentapp.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
-    private var _binding: FragmentFirstBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentFirstBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.title.text = getString(R.string.first_fragment_title)
+        binding.btnToSecond.text = getString(R.string.go_to_second)
+
         binding.btnToSecond.setOnClickListener {
             findNavController().navigate(R.id.toSecondFragment)
         }
-
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

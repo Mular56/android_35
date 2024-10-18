@@ -19,7 +19,8 @@ class ThirdFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnBackToSecond.setOnClickListener {
+        binding.title.text = getString(R.string.third_fragment_title)
+        binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
     }

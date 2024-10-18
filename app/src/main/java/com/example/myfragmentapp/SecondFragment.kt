@@ -19,6 +19,10 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.title.text = getString(R.string.second_fragment_title)
+        binding.btnToThird.text = getString(R.string.go_to_third)
+        binding.btnBackToFirst.text = getString(R.string.back_to_first)
+
         binding.btnToThird.setOnClickListener {
             findNavController().navigate(R.id.toThirdFragment)
         }
